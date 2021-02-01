@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用css写的类似雷蛇炫彩鼠标垫的灯光特效</title>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+            background-color: #000;
+            border-radius: 30px;
+        }
+        .shadow{
+            width: 400px;
+            height:350px;
+            background:linear-gradient( to top, #111111 , #111111);
+            border-radius: 30px;
+            margin: 200px auto;
+            position: relative;
+        }
+        .shadow::before,
+        .shadow::after{
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            background: linear-gradient(45deg,#59be6d, #6ed952, #dfda4d, #cf1a17, #5f2ace,#1ab4dd ,#ffc0cb);
+            background-size: 400%;
+            z-index: -1;
+            animation: animate 20s linear infinite;
+            background-position: 0% 0;
+            border-radius: 30px;
+        }
+        @keyframes animate {
+            0%{
+                background-position: 0 0;
+            }
+            50%{
+                background-position: 259% 0;
+            }
+            100%{
+                background-position: 0 0;
+            }
+        }
+        .shadow::after{
+            filter:blur(45px);
+        }
+        img{
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            top: 35px;
+            right: 35px;
+        }
+    </style>
+</head>
+<body>
+    <div class="shadow">
+        <img src="雷蛇logo.png" , >
+    </div>
+
+</body>
+</html>
